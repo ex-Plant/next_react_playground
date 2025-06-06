@@ -199,3 +199,94 @@ Usage
 Display a pending state during form submission
 Read the form data being submitted
 - for actions outside forms like in buttons, stand alone inputs etc.
+
+check if you have access to formDAta in form submit ? 
+
+
+**video 263 265**
+- TUTORIAL ZODA I REACT HOOK FORM 
+- WALIDACJA NA SERWERZE
+- REGISTER...
+- ZOD RESOLVER
+
+
+*video 768*
+- grid layout
+- you can add botu grid-cols-3 and grid-rows-2 for cols/rows
+- row-start-1 row-span-1
+it is a BAD PRACTICE to include layout in individual components - it should be visible from the higher level layout 
+  component, you can use content wrappers or simply pass classes 
+- 
+
+
+isNan()
+substring()
+React.lazy()
+
+[614798278-42234/*334+34-34+34=]
+
+
+*fetch*
+async function getData() {
+const url = "https://example.org/products.json";
+try {
+const response = await fetch(url);
+if (!response.ok) {
+throw new Error(`Response status: ${response.status}`);
+}
+
+    const json = await response.json();
+    console.log(json);
+} catch (error) {
+console.error(error.message);
+}
+
+- If the server responds with an error like 404 fetch itself will not throw an error - that is why we have to check 
+  if response is ok - 200, 201 and so on, if it is not we have to throw an Error by ourselves
+-The fetch() function will reject the promise on some errors, but not if the server responds with an error status like 404: so we also check the response status and throw if it is not OK.
+
+Otherwise, we fetch the response body content as JSON by calling the json() method of Response, and log one of its values. Note that like fetch() itself, json() is asynchronous, as are all the other methods to access the response body content.
+
+By default, fetch() makes a GET request, but you can use the method option to use a different request method:
+
+const response = await fetch("https://example.org/post", {
+method: "POST",
+// …
+});
+
+Setting a body
+The request body is the payload of the request: it's the thing the client is sending to the server. You cannot include a body with GET requests, but it's useful for requests that send content to the server, such as POST or PUT requests. For example, if you want to upload a file to the server, you might make a POST request and include the file as the request body.
+
+To set a request body, pass it as the body option:
+
+const response = await fetch("https://example.org/post", {
+method: "POST",
+body: JSON.stringify({ username: "example" }),
+// …
+});
+
+You can supply the body as an instance of any of the following types:
+
+a string
+ArrayBuffer
+TypedArray
+DataView
+Blob
+File
+URLSearchParams
+FormData
+ReadableStream
+
+**passing data from server c to context*
+
+
+*server stateless*
+- server is stateless - it receives a request from the client, and it sends response - after that it forgets 
+  everything, it is stateless, that is why we can not do state management on the server like we can on the client - 
+  hence libraries, and tools like zustand or context api are client side only
+
+
+
+**how to correctly pass data from the server to the client using zustand in next js**
+
+**recap of creating a simple server in node / express.js**

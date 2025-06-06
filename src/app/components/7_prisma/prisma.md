@@ -1,23 +1,21 @@
 1. npm i prisma
-2. get connection string 
+2. get connection string
 3. npx prisma init
 4. create first model
 5. npx prisma migrate to push changes in the model to the db
-6. npx prisma db pull to pull changes from the db for example if you edit tables from supabase or neon ui 
+6. npx prisma db pull to pull changes from the db for example if you edit tables from supabase or neon ui
 7. npx prisma studio - to see local db
 
 - prisma.Users.count
 - prisma.Users.
 
-
 const data = await prisma.Users.findMany({
-    where: {
-        name: 'John'
-        },
-    take: 10,
-    skip: (page - 1) ) * 10
+where: {
+name: 'John'
+},
+take: 10,
+skip: (page - 1) ) \* 10
 })
-
 
 const count = await prisma.Users.count()
 
@@ -35,10 +33,8 @@ Summary:
 
 migrate = changes your database, and updates the client.
 
-
-
-
 **seed**
 `prisma/seed.ts`
-- to make seed work in next js app we need to add this command 
-    "seed": "ts-node --compiler-options '{\"module\":\"CommonJs\"}' prisma/seed.ts"
+
+- to make seed work in next js app we need to add this command
+  "seed": "ts-node --compiler-options '{\"module\":\"CommonJs\"}' prisma/seed.ts"

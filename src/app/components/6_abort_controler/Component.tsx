@@ -26,15 +26,13 @@ function Component(props) {
     };
 
     useEffect(() => {
-        refetch();
-        // Cleanup on unmount
-        return () => {
-          if (controller) controller.abort();
-        };
-        // eslint-disable-next-line
+      refetch();
+      // Cleanup on unmount
+      return () => {
+        if (controller) controller.abort();
+      };
+      // eslint-disable-next-line
     }, [url]);
-
-
 
     return { data, refetch };
   }

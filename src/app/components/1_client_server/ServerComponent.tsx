@@ -1,12 +1,8 @@
 type ServerComponentPropsT = {
-  txt: string
+  txt: string;
+};
 
-}
-
-export const ServerComponent = ({txt}: ServerComponentPropsT) => {
-
+export const ServerComponent = ({ txt }: ServerComponentPropsT) => {
   console.log(txt);
-  return (
-    <>{txt}</>
-  );
+  return <>{txt}</>;
 };
