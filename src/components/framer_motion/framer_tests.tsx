@@ -7,7 +7,7 @@ const FramerAnimationTests = () => {
   const controls = useAnimationControls();
   const [hasAnimated, setHasAnimated] = useState(false);
 
-  const [, setIsHovered] = useState(false);
+  const [isHovered, setIsHovered] = useState(false);
 
   //   State-Managed Animation
   const handleHoverStart = async () => {
