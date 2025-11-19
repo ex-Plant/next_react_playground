@@ -1,9 +1,9 @@
 "use client";
-import { doSomethingOnTheServer } from "@/app/lib/server_utils/serverUtils";
+import { doSomethingOnTheServer } from "@/lib/server_utils/serverUtils";
 
 const ServerOnly = () => {
   // this will throw an error
-  // await doSomethingOnTheServer();
+  await doSomethingOnTheServer();
   return <>ServerOnly</>;
 };
 

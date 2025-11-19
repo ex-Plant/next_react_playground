@@ -1,4 +1,5 @@
-import { createContext, ReactNode, useContext, useState } from "react";
+"use client";
+import { createContext, ReactNode, useContext } from "react";
 
 export const ThemeContext = createContext({
   theme: "dark",

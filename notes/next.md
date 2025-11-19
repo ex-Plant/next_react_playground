@@ -129,24 +129,24 @@ There is no static cache; each request triggers a fresh server-side render and f
   client-side cache (`ROUTER CACHE`)
 
 **unstable_cache**
+
 - if we are not using fetch that is cached by default we need to do that ourselves
 - using unstable cache is caching data from data source for the duration a session - refresh will delete it
 
-
 **server security and server-only**
-- whenever there is some vulnerable users data that you do not want to leek to the client it is good idea to put them 
-  to a separate catalogue like server-utils etc. 
-- then you install a package called server-only and import it at the top of the file that you want to keep on the server
-- if you try to call this function from within server component this should throw an error 
 
+- whenever there is some vulnerable users data that you do not want to leek to the client it is good idea to put them
+  to a separate catalogue like server-utils etc.
+- then you install a package called server-only and import it at the top of the file that you want to keep on the server
+- if you try to call this function from within server component this should throw an error
 
 **openGraph**
+
 - test if your page images shows up correctly on social media etc
 
-
 **server actions**
-- onSubmit - you can not do that in a server component!
 
+- onSubmit - you can not do that in a server component!
 
 **useOptimistic**
 Usage
@@ -159,14 +159,13 @@ const [state, formAction] = useActionState(createTicket, initState);
 
 //
 // useEffect(() => {
-//   console.log(state, "state");
-//   if (state.success) {
-//     toast.success(`😎`);
-//     router.push(`/tickets`);
-//   }
-//   console.log(state, `🍆`);
+// console.log(state, "state");
+// if (state.success) {
+// toast.success(`😎`);
+// router.push(`/tickets`);
+// }
+// console.log(state, `🍆`);
 // }, [state]);
-
 
 **useTransition**
 Perform non-blocking updates with Actions
@@ -191,33 +190,33 @@ console.log(res, "res");
         toast.error(`Something went wrong 🚨:` + res.message);
       }
     });
+
 }
 
-
-*useFormAction*
+_useFormAction_
 Usage
 Display a pending state during form submission
 Read the form data being submitted
+
 - for actions outside forms like in buttons, stand alone inputs etc.
 
-check if you have access to formDAta in form submit ? 
-
+check if you have access to formDAta in form submit ?
 
 **video 263 265**
-- TUTORIAL ZODA I REACT HOOK FORM 
+
+- TUTORIAL ZODA I REACT HOOK FORM
 - WALIDACJA NA SERWERZE
 - REGISTER...
 - ZOD RESOLVER
 
+_video 768_
 
-*video 768*
 - grid layout
 - you can add botu grid-cols-3 and grid-rows-2 for cols/rows
 - row-start-1 row-span-1
-it is a BAD PRACTICE to include layout in individual components - it should be visible from the higher level layout 
-  component, you can use content wrappers or simply pass classes 
-- 
-
+  it is a BAD PRACTICE to include layout in individual components - it should be visible from the higher level layout
+  component, you can use content wrappers or simply pass classes
+-
 
 isNan()
 substring()
@@ -225,8 +224,7 @@ React.lazy()
 
 [614798278-42234/*334+34-34+34=]
 
-
-*fetch*
+_fetch_
 async function getData() {
 const url = "https://example.org/products.json";
 try {
@@ -237,13 +235,14 @@ throw new Error(`Response status: ${response.status}`);
 
     const json = await response.json();
     console.log(json);
+
 } catch (error) {
 console.error(error.message);
 }
 
-- If the server responds with an error like 404 fetch itself will not throw an error - that is why we have to check 
+- If the server responds with an error like 404 fetch itself will not throw an error - that is why we have to check
   if response is ok - 200, 201 and so on, if it is not we have to throw an Error by ourselves
--The fetch() function will reject the promise on some errors, but not if the server responds with an error status like 404: so we also check the response status and throw if it is not OK.
+  -The fetch() function will reject the promise on some errors, but not if the server responds with an error status like 404: so we also check the response status and throw if it is not OK.
 
 Otherwise, we fetch the response body content as JSON by calling the json() method of Response, and log one of its values. Note that like fetch() itself, json() is asynchronous, as are all the other methods to access the response body content.
 
@@ -277,16 +276,201 @@ URLSearchParams
 FormData
 ReadableStream
 
-**passing data from server c to context*
+\*_passing data from server c to context_
 
+_server stateless_
 
-*server stateless*
-- server is stateless - it receives a request from the client, and it sends response - after that it forgets 
-  everything, it is stateless, that is why we can not do state management on the server like we can on the client - 
+- server is stateless - it receives a request from the client, and it sends response - after that it forgets
+  everything, it is stateless, that is why we can not do state management on the server like we can on the client -
   hence libraries, and tools like zustand or context api are client side only
-
-
 
 **how to correctly pass data from the server to the client using zustand in next js**
 
 **recap of creating a simple server in node / express.js**
+
+**308**
+
+- when passing data to some client component from the server component and this data is updated it wont be updated ?
+- better to use date and derive some data/state from it
+
+**onsubmit**
+
+- only runs on the server so no progressive enhancement
+  you can still technically use that and trigger server action from that
+- what is so powerful with mutatations via server actions everything happens on one network circle - it will send
+  the data and get the result immediately
+
+**actions and types**xxzx
+
+- how do you get correct types from formData?
+
+**SOLID**
+https://medium.com/@ignatovich.dm/applying-solid-principles-in-react-applications-44eda5e4b664
+
+**useActionState**
+
+- instead of showing error by triggering toast in use effect we can do something like if error <div>error</>
+- no javascript needed
+- good for progressive enhancement
+
+**flushsync**-
+
+- if you have multiple state setter functions or state updates in a single event react may batch them together, it
+  means that it will try to update the state in single redner pass which is good for optimization but not
+  necessarily what we might want - for example if we want one state update to happen before the other. We can use
+  flushSync to handle such cases
+  ` import { flushSync } from 'react-dom';
+
+flushSync(() => {
+setSomething(123);
+});`
+
+YOU SHOULD BE VERY CAREFUL WTIH USING FLUSH SYNC AS I CAN HURT PERFORMANCE AND IT IS NOT WHAT YOU WOULD TYPICALLY
+WANT TO DO
+
+using this shoul be our last resort since it can hurt performance and usually this is not something we need to do
+
+# flushSync lets you force React to flush any updates inside the provided callback synchronously. This ensures that the DOM is updated immediately.
+
+i've learned that is is usually the last part that is relevant so maybe this is where you should probably be looking
+for a reason of your ts problem
+
+**validation on the server - zod**
+You want to validate data on the client to show instant feedback to the user but you also want to validate data on
+the server.
+The reason for this is becuase you can actually manipulate data on the client for example using dev tools so in
+theory the user can bypass our validation. To be sure we need to validate data on the server before sending anything.
+That is why we are using zod.
+
+**zod transform**
+
+**CUID**
+CUID (Collision-Resistant Unique Identifier)
+
+# Page transition animations with framer
+
+```js
+export default function Template({ children }: PropsT) {
+  return (
+    <AnimatePresence mode="wait">
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        exit={{ opacity: 0, y: -20 }}
+        transition={{ duration: 0.5, ease: "easeInOut" }}
+        style={{ willChange: "opacity, transform" }}
+      >
+        {children}
+      </motion.div>
+    </AnimatePresence>
+  );
+}
+```
+
+# Adding fonts
+
+Import variable fonts in layout.
+If you add variable option Next.js automatically creates a CSS variable and injects it into the DOM.
+
+```js
+const inclusive_Sans = Inclusive_Sans({
+  variable: "--font-inclusive",
+  subsets: ["latin"],
+});
+
+const geist = Geist({
+  variable: "--font-geist",
+  subsets: ["latin"],
+});
+<body
+  className={cn(geist.variable, inclusive_Sans.variable, "font-inclusive")}
+></body>;
+```
+
+# Tailwind 4
+
+Add imported variable fonts as css variables in global.css
+
+```css
+/* noinspection CssUnresolvedCustomProperty */
+--font-inclusive: var(--font-inclusive);
+/* noinspection CssUnresolvedCustomProperty */
+--font-geist: var(--font-geist);
+/* noinspection CssUnresolvedCustomProperty */
+```
+
+# Tailwind 3
+
+I tailwind 3 we need to add variable fonts to tailwind.config
+
+```
+      fontFamily: {
+        sans: ['var(--font-inclusive)'],
+        geist: ['var(--font-geist)'],
+      },
+```
+
+# next 16 images fix
+
+❌ next 16 image error:
+upstream image http://localhost:3000/api/media/file/output-onlinejpgtools-2.jpg?2025-11-11T21%3A43%3A06.468Z resolved to private ip ["::1","127.0.0.1"]
+
+to fix this add this to nextImage
+
+```js
+<Image
+  unoptimized={
+    src.toString().includes("localhost") || src.toString().includes("127.0.0.1")
+  }
+/>
+```
+
+# SERVER ACTIONS
+
+async functions that run on the server
+
+# LOADING AND SUSPENSE
+
+- loading is a special file in next.js that allows next.js to use React Suspense feature
+  Whenever there's some server side component that is awaiting some data and you add loading file it would be
+  equivalent to wrapping the whole component in a <Suspense fallback={Loading...}><SomeAwaitedComponent/></Suspense>
+
+# STREAMING
+
+-You can add a suspense yourself - very useful for example if you want to leverage `STREAMING` in next.js. Lets say
+we dont want to block the entire page when fetching data needed only by a small component within it. We can make
+this component fetching data a server component and fetch data directly within it as close as possible to a place
+where this data will be used. Data to this component will be streamed in by next when they are ready, but will not
+block rendering or interacting with the page. You can also incorporate your own strategy what you want to do with
+that component while it is being streamed.
+
+# dynamic rendering
+
+- NO CACHING - PAGE ALWAYS HAS A FRESH ACTUAL DATA - COMPONENT IS RENDERED WHENEVER THSE USER MAKES A REQUEST
+
+# static rendering
+
+- data fetched during build and only then
+
+# export const dynamic = 'force-dynamic'
+
+- this will make every component in the current route dynamic
+- to do that on the fetch level you can add no-cache option
+
+# Preventing resetting form after submit via form action
+
+By default, after form action form will be reset. But since we can return whatever we want from form action, we can
+pass a form object, and use it's value as a default value to populate the fields again.
+
+```js
+const [state, formAction, pending] = useActionState(actionTest, initData);
+<Input
+  defaultValue={state?.company_name}
+  placeholder={"Nazwa firmy / pracowni"}
+  name={"company_name"}
+/>;
+export async function actionTest(prevState: FormT, formData: FormData) {
+  if (formData) console.log(formData?.get("company_name"));
+  return { company_name: "test" };
+}
+```

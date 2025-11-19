@@ -1,6 +1,6 @@
 "use client";
 
-import { AnimatedImgFlexBasis } from "@/app/components/6_tailwindTricks/AnimatedImgFlexBasis";
+import { AnimatedImgFlexBasis } from "@/components/6_tailwindTricks/AnimatedImgFlexBasis";
 import FancyBlurredBgc from "@/app/components/6_tailwindTricks/FancyBlurredBgc";
 
 const dummyList = Array.from({ length: 20 });

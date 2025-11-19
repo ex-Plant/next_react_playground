@@ -1,4 +1,4 @@
-import cn from "@/app/lib/utils/restParameter_cn";
+import cn from "@/lib/utils/restParameter_cn";
 import Image from "next/image";
 import { useRef } from "react";
 import { useScroll, motion, useTransform } from "framer-motion";
@@ -68,9 +68,9 @@ export function AnimatedImgFlexBasis() {
         ` border border-white relative aspect-square min-h-[200px]
          hover:scale-[105%] transition active:scale-[95%] w-full h-full
      `,
-        // `basis-[200px] flex-1 `,
+        `basis-[200px] flex-1 `
         // `basis-[200px] flex-0 min-h-[100px]`,
-        `w-[200px]`,
+        // `w-[200px]`
       )}
     >
       <Image
