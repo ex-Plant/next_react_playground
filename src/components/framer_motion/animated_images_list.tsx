@@ -8,7 +8,7 @@ const AnimatedImagesList = () => {
   return (
     <>
       <section
-        className={`h-full grow flex flex-1 flex-wrap gap-4 justify-center  py-[50vw]`}
+        className={`h-full grow flex flex-1 flex-wrap gap-4 justify-center py-[50vw]`}
       >
         {dummyList.map((_, i) => (
           <div key={i}>
