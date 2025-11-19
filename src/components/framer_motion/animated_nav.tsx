@@ -9,8 +9,8 @@ const routes = [
     route: "home",
   },
   {
-    path: "/page1",
-    route: "page1",
+    path: "/page-1",
+    route: "page-1",
   },
   {
     path: "/animatedImages",

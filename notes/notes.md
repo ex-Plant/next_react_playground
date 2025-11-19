@@ -2,6 +2,39 @@ isNan()
 substring()  
 React.lazy()
 
+### Adding and removing listeners using abort controller
+
+```js
+useEffect(() => {
+  const controller = new AbortController();
+  const signal = new AbortController().signal;
+
+  function handleScroll() {
+    console.log(`scroll...`);
+  }
+
+  function handleClick() {
+    console.log("click...");
+  }
+
+  function dragstart() {
+    console.log("dragstart...");
+  }
+
+  document.addEventListener(`scroll`, () => handleScroll, {
+    signal,
+  });
+  document.addEventListener(`click`, () => handleClick, {
+    signal,
+  });
+  document.addEventListener(`dragstart`, () => dragstart, {
+    signal,
+  });
+
+  return () => controller.abort();
+}, []);
+```
+
 ### generate metadata
 
 ```js
@@ -177,6 +210,22 @@ export async function doSomethingOnTheServer() {
   console.log("I am a server function");
 }
 ```
+
+### Server only throws a build-time error
+
+Route build on first request: When you navigate to /page-1 for the first time, Next.js builds that specific route
+Server-only detection: During this route building process, Next.js detects the server-only import in your client component
+Build failure: The build fails because client code is trying to import server-only code
+Even though this happens "on-demand" when you make the request, it's still a build-time error during the bundling phase, not a runtime rendering error.  
+Error boundaries in Next.js only catch errors that occur during:
+Server-side rendering execution
+Client-side hydration/rendering
+Component lifecycle methods
+They don't catch errors that occur during:
+Module bundling
+Import resolution
+Build-time validation (like server-only checks)
+The server-only package is specifically designed to fail fast at build time to prevent accidental bundling of server secrets or server-only logic into client bundles. This is a security and correctness feature, not something that should be caught by error boundaries.
 
 ### openGraph
 

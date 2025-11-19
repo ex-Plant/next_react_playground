@@ -1,4 +1,4 @@
-import AnimatedImagesList from "@/components/4_framer_motion/AnimatedImagesList";
+import AnimatedImagesList from "@/components/framer_motion/animated_images_list";
 
 export default function Page() {
   return <AnimatedImagesList />;

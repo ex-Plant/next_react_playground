@@ -2,20 +2,9 @@ import cn from "@/lib/utils/restParameter_cn";
 import Image from "next/image";
 import { useRef } from "react";
 import { useScroll, motion, useTransform } from "framer-motion";
-
-//
-//
 // **fancy hover effect**
-//
 // - active happens when you click an image as in the drag event or something like that
-//
 //   `hover:scale-110 active:scale-[1.02] transition overflow hidden `
-
-// **fancy image background **
-// blur original image , low quality
-// blur-3xl
-// sizes
-// (max-width: 1280px: 100vw, 1280px)
 
 export function AnimatedImgFlexBasis() {
   const ref = useRef<HTMLDivElement>(null);
