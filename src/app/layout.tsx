@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "@/globals.css";
 import { FramerMotionNavBar } from "@/components/framer_motion/animated_nav";
 import ThemeContextProvider from "@/contexts/theme_ctx";
+import { RootLayoutDebugWrapper } from "../components/tdg_components/debug/RootLayoutDebugWrapper";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -29,10 +30,12 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-[120vh] flex flex-col`}
       >
-        {/* <ThemeContextProvider> */}
-        <FramerMotionNavBar />
-        {children}
-        {/* </ThemeContextProvider> */}
+        <RootLayoutDebugWrapper>
+          {/* <ThemeContextProvider> */}
+          <FramerMotionNavBar />
+          {children}
+          {/* </ThemeContextProvider> */}
+        </RootLayoutDebugWrapper>
       </body>
     </html>
   );

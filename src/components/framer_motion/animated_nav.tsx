@@ -2,6 +2,7 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { DebugToolsTriggers } from "../tdg_components/debug/DebugToolsTriggers";
 
 const routes = [
   {
@@ -25,6 +26,7 @@ export const FramerMotionNavBar = () => {
 
   return (
     <nav className={`flex gap-2`}>
+      <DebugToolsTriggers />
       {routes.map((r) => (
         <div key={r.path} className={`relative`}>
           <Link href={r.path}>{r.route}</Link>
