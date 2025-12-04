@@ -48,3 +48,12 @@ body {
   scrollbar-width: thin;
   scrollbar-color: #0f1015 rgba(255, 255, 255, 0.1);
 }
+
+/* letters animation */
+.line {
+  background-image: linear-gradient(white, white);
+  background-size: 0 100%;
+  background-repeat: no-repeat;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: rgba(255, 255, 255, 0.2) !important;
+}
