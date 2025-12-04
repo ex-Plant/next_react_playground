@@ -1,8 +1,9 @@
 "use client";
 
-import { twMerge } from "tailwind-merge";
 import { useDebugTools } from "./useDebugTools";
 import { GridVisualHelper } from "./GridVisualHelper";
+import { DebugToolsTriggers } from "./DebugToolsTriggers";
+import cn from "../../../lib/utils/restParameter_cn";
 
 type RootLayoutDebugWrapperPropsT = {
   children: React.ReactNode;
@@ -15,16 +16,19 @@ export const RootLayoutDebugWrapper = ({
 }: RootLayoutDebugWrapperPropsT) => {
   const { layersVisible, outlinesVisible, gridVisible } = useDebugTools();
 
+  const isDev = process.env.NODE_ENV == "development";
+
   return (
     <>
-      {gridVisible && <GridVisualHelper />}
+      {isDev && gridVisible && <GridVisualHelper />}
       <div
-        className={twMerge(
-          outlinesVisible && `[&_*]:outline [&_*]:outline-lime-300`,
-          layersVisible && `[&_*]:bg-[hsl(0_100%_50%_/_0.1)]`
+        className={cn(
+          outlinesVisible && `**:outline **:outline-lime-300`,
+          layersVisible && `**:bg-[hsl(0_100%_50%/_0.1)]`
         )}
       >
         {children}
+        {isDev && <DebugToolsTriggers />}
       </div>
     </>
   );

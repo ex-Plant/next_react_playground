@@ -17,29 +17,27 @@ export const DebugToolsTriggers = ({}) => {
   } = useDebugTools();
 
   return (
-    <>
-      <div
-        className={`absolute bottom-4 right-0 flex flex-col gap-2 md:flex-row lg:mt-auto`}
-      >
-        <DebugToolsCheckbox
-          toggleFunc={toggleGrid}
-          currentVal={gridVisible}
-          label={`grid`}
-          ref={gridInputRef}
-        />
-        <DebugToolsCheckbox
-          toggleFunc={toggleOutlines}
-          currentVal={outlinesVisible}
-          label={`outlines`}
-          ref={outlinesInputRef}
-        />
-        <DebugToolsCheckbox
-          toggleFunc={toggleLayers}
-          currentVal={layersVisible}
-          label={`layers`}
-          ref={layersInputRef}
-        />
-      </div>
-    </>
+    <div
+      className={`absolute bottom-4 right-0 flex flex-col gap-2 md:flex-row lg:mt-auto`}
+    >
+      <DebugToolsCheckbox
+        toggleFunc={toggleGrid}
+        currentVal={gridVisible}
+        label={`grid`}
+        ref={gridInputRef}
+      />
+      <DebugToolsCheckbox
+        toggleFunc={toggleOutlines}
+        currentVal={outlinesVisible}
+        label={`outlines`}
+        ref={outlinesInputRef}
+      />
+      <DebugToolsCheckbox
+        toggleFunc={toggleLayers}
+        currentVal={layersVisible}
+        label={`layers`}
+        ref={layersInputRef}
+      />
+    </div>
   );
 };
