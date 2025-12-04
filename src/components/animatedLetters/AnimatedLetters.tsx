@@ -5,6 +5,7 @@ import SplitType from "split-type";
 import { useEffect, useLayoutEffect, useRef } from "react";
 import useWindowSize from "../../lib/utils/hooks/useWindowSize";
 import cn from "../../lib/utils/restParameter_cn";
+import { useMinMD } from "../../lib/utils/hooks/useMediaQuery";
 
 gsap.registerPlugin(ScrollTrigger);
 const useIsomorphicLayoutEffect =
@@ -13,7 +14,7 @@ const useIsomorphicLayoutEffect =
 export const AnimatedLetters = () => {
   const lettersRef = useRef<HTMLDivElement>(null);
 
-  const md = true;
+  const md = useMinMD();
   const { clientWidth } = useWindowSize();
 
   //large
