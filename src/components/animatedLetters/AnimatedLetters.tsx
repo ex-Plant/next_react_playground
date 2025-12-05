@@ -48,7 +48,7 @@ export const AnimatedLetters = () => {
     <div
       ref={lettersRef}
       className={cn(
-        `no-scrollbar paddings-left z-[2] flex flex-col overflow-x-hidden overflow-y-scroll py-[120px] pr-2 
+        `no-scrollbar paddings-left z-2 flex flex-col overflow-x-hidden overflow-y-scroll py-[120px] pr-2 
          sm:w-[calc(340/360*100vw)] 
          md:w-[calc(590/768*100vw)] 
          lg:w-[calc(740/1024*100vw)] lg:max-w-[940px] lg:py-[240px] `
@@ -56,7 +56,7 @@ export const AnimatedLetters = () => {
     >
       <div
         id="target"
-        className={`break-words font-poly text-[34px] uppercase md:text-[64px] lg:text-[80px] xl:text-[96px] `}
+        className={`wrap-break-words font-poly text-[34px] uppercase md:text-[64px] lg:text-[80px] xl:text-[96px] `}
       >
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa possimus
         voluptate iusto. Nisi fugit perspiciatis cumque. Nobis, nostrum libero
