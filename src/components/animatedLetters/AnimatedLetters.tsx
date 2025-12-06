@@ -48,15 +48,15 @@ export const AnimatedLetters = () => {
     <div
       ref={lettersRef}
       className={cn(
-        `no-scrollbar paddings-left z-2 flex flex-col overflow-x-hidden overflow-y-scroll py-[120px] pr-2 
-         sm:w-[calc(340/360*100vw)] 
-         md:w-[calc(590/768*100vw)] 
-         lg:w-[calc(740/1024*100vw)] lg:max-w-[940px] lg:py-[240px] `
+        `no-scrollbar paddings-left z-2 flex flex-col overflow-x-hidden overflow-y-scroll py-[120px] pr-2 sm:w-[calc(340/360*100vw)] md:w-[calc(590/768*100vw)] lg:w-[calc(740/1024*100vw)] lg:max-w-[940px] lg:py-[240px]`,
       )}
     >
+      <span> asdf asdf </span>
+      <span> asdf asdf </span>
+      <span> asdf asdf </span>
       <div
         id="target"
-        className={`wrap-break-words font-poly text-[34px] uppercase md:text-[64px] lg:text-[80px] xl:text-[96px] `}
+        className={`wrap-break-words font-poly text-[34px] uppercase md:text-[64px] lg:text-[80px] xl:text-[96px]`}
       >
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa possimus
         voluptate iusto. Nisi fugit perspiciatis cumque. Nobis, nostrum libero
