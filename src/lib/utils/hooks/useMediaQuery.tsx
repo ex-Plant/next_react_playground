@@ -19,20 +19,20 @@ export const useMinXL = () => useMediaQuery("(min-width: 1280px)");
 /** > 1536px */
 export const useMin2XL = () => useMediaQuery("(min-width: 1536px)");
 
-/** ≤ 640px */
-export const useMaxSM = () => useMediaQuery("(max-width: 640px)");
+/** < 640px */
+export const useMaxSM = () => useMediaQuery("(max-width: 639px)");
 
-/** ≤ 768px */
-export const useMaxMD = () => useMediaQuery("(max-width: 768px)");
+/** < 768px */
+export const useMaxMD = () => useMediaQuery("(max-width: 767px)");
 
-/** ≤ 1024px */
-export const useMaxLG = () => useMediaQuery("(max-width: 1024px)");
+/** < 1024px */
+export const useMaxLG = () => useMediaQuery("(max-width: 1023px)");
 
-/** ≤ 1280px */
-export const useMaxXL = () => useMediaQuery("(max-width: 1280px)");
+/** < 1280px */
+export const useMaxXL = () => useMediaQuery("(max-width: 1279px)");
 
-/** ≤ 1536px */
-export const useMax2XL = () => useMediaQuery("(max-width: 1536px)");
+/** < 1536px */
+export const useMax2XL = () => useMediaQuery("(max-width: 1535px)");
 
 // Breakpoint range hooks - true when within that specific breakpoint range
 
@@ -97,16 +97,16 @@ export const usePrefersReducedMotion = () =>
 
 // Mobile devices (small screen + touch)
 
-/** Mobile device (≤768px + touch) */
+/** Mobile device (< 768px + touch) */
 export const useMobile = () =>
-  useMediaQuery("(max-width: 768px) and (pointer: coarse)");
+  useMediaQuery("(max-width: 767px) and (pointer: coarse)");
 
 // Tablet range (medium screen + touch)
 
-/** Tablet device (768px-1024px + touch) */
+/** Tablet device (768px-1023px + touch) */
 export const useTablet = () =>
   useMediaQuery(
-    "(min-width: 768px) and (max-width: 1024px) and (pointer: coarse)"
+    "(min-width: 768px) and (max-width: 1023px) and (pointer: coarse)"
   );
 
 // Desktop (large screen + mouse)
